@@ -1,0 +1,38 @@
+logger:
+  level: info
+
+global:
+  max:
+    ue: 1024
+
+sbi:
+  server:
+    no_tls: true
+  client:
+    no_tls: true
+
+smf:
+  sbi:
+    - addr: 10.10.0.12
+      port: 7777
+  pfcp:
+    - addr: 10.10.0.12
+  gtpc:
+    - addr: 10.10.0.12
+  gtpu:
+    - addr: 10.10.0.12
+  subnet:
+    - addr: 10.45.0.1/16
+      dnn: internet
+  dns:
+    - 8.8.8.8
+    - 8.8.4.4
+
+nrf:
+  sbi:
+    - addr: 10.10.0.10
+      port: 7777
+
+upf:
+  pfcp:
+    - addr: 10.10.0.13

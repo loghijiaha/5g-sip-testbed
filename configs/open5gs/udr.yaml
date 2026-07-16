@@ -1,0 +1,24 @@
+logger:
+  level: info
+
+global:
+  max:
+    ue: 1024
+
+sbi:
+  server:
+    no_tls: true
+  client:
+    no_tls: true
+
+db_uri: mongodb://10.10.0.2/open5gs
+
+udr:
+  sbi:
+    - addr: 10.10.0.16
+      port: 7777
+
+nrf:
+  sbi:
+    - addr: 10.10.0.10
+      port: 7777

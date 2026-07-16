@@ -1,0 +1,32 @@
+FROM --platform=linux/amd64 ubuntu:22.04
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    python3-pip python3-setuptools python3-wheel \
+    ninja-build build-essential flex bison git cmake \
+    libsctp-dev libgnutls28-dev libgcrypt-dev libssl-dev \
+    libidn11-dev libmongoc-dev libbson-dev libyaml-dev \
+    libnghttp2-dev libmicrohttpd-dev libcurl4-gnutls-dev \
+    libtins-dev libtalloc-dev \
+    meson iproute2 iputils-ping iptables tcpdump \
+    lksctp-tools \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch v2.6.6 https://github.com/open5gs/open5gs.git /open5gs
+
+WORKDIR /open5gs
+
+RUN meson build --prefix=/usr/local \
+    && ninja -C build \
+    && ninja -C build install \
+    && ldconfig
+
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && cd webui && npm ci
+
+RUN mkdir -p /etc/open5gs
+
+CMD ["bash"]

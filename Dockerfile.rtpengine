@@ -1,0 +1,34 @@
+FROM debian:bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    git build-essential pkg-config \
+    gperf pandoc \
+    libglib2.0-dev libssl-dev libpcre3-dev \
+    libxmlrpc-core-c3-dev libjson-glib-dev \
+    libhiredis-dev libcurl4-openssl-dev \
+    libevent-dev libpcap-dev \
+    libmnl-dev \
+    libiptc-dev \
+    libxtables-dev \
+    libavcodec-dev libavformat-dev libavfilter-dev \
+    libavutil-dev libswresample-dev \
+    libopus-dev \
+    libspandsp-dev libwebsockets-dev \
+    default-libmysqlclient-dev markdown zlib1g-dev \
+    nftables libnftables-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN git clone --depth 1 --branch mr11.5 \
+    https://github.com/sipwise/rtpengine.git /rtpengine
+
+WORKDIR /rtpengine/daemon
+RUN make
+
+RUN cp rtpengine /usr/local/bin/
+
+EXPOSE 22222/udp
+EXPOSE 30000-30100/udp
+
+CMD ["rtpengine", "--foreground", "--interface=0.0.0.0", "--listen-ng=0.0.0.0:22222", "--port-min=30000", "--port-max=30100", "--log-level=6"]

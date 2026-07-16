@@ -1,0 +1,16 @@
+logger:
+  level: info
+
+global:
+  max:
+    ue: 1024
+
+upf:
+  pfcp:
+    - addr: 10.10.0.13
+  gtpu:
+    - addr: 10.10.0.13
+  subnet:
+    - addr: 10.45.0.1/16
+      dnn: internet
+      dev: ogstun

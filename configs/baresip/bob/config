@@ -1,11 +1,7 @@
 sip_listen          0.0.0.0:5072
-audio_player        coreaudio,default
-audio_source        coreaudio,default
-audio_alert         coreaudio,default
+audio_player        default
+audio_source        default
+audio_alert         default
 audio_codec         PCMU/8000/1
 audio_codec         PCMA/8000/1
 rtp_ports           20200-20300
-module              coreaudio.so
-module              g711.so
-module              uuid.so
-module              account.so

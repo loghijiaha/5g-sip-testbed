@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   mongodb:
     image: mongo:6.0
@@ -11,7 +9,7 @@ services:
         ipv4_address: 10.10.0.2
 
   nrf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-nrf
     command: open5gs-nrfd -c /etc/open5gs/nrf.yaml
@@ -23,7 +21,7 @@ services:
         ipv4_address: 10.10.0.10
 
   ausf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-ausf
     command: open5gs-ausfd -c /etc/open5gs/ausf.yaml
@@ -35,7 +33,7 @@ services:
         ipv4_address: 10.10.0.14
 
   udm:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-udm
     command: open5gs-udmd -c /etc/open5gs/udm.yaml
@@ -45,9 +43,18 @@ services:
     networks:
       core:
         ipv4_address: 10.10.0.15
-
+  nssf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-nssf
+    command: open5gs-nssfd -c /etc/open5gs/nssf.yaml
+    volumes:
+      - ./configs/open5gs/nssf.yaml:/etc/open5gs/nssf.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.19
   udr:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-udr
     command: open5gs-udrd -c /etc/open5gs/udr.yaml
@@ -59,7 +66,7 @@ services:
         ipv4_address: 10.10.0.16
 
   pcf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-pcf
     command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
@@ -71,7 +78,7 @@ services:
         ipv4_address: 10.10.0.17
 
   bsf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-bsf
     command: open5gs-bsfd -c /etc/open5gs/bsf.yaml
@@ -83,7 +90,7 @@ services:
         ipv4_address: 10.10.0.18
 
   amf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-amf
     command: open5gs-amfd -c /etc/open5gs/amf.yaml
@@ -95,7 +102,7 @@ services:
         ipv4_address: 10.10.0.11
 
   smf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-smf
     command: open5gs-smfd -c /etc/open5gs/smf.yaml
@@ -107,7 +114,7 @@ services:
         ipv4_address: 10.10.0.12
 
   upf:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-upf
     command: >
@@ -129,7 +136,7 @@ services:
         ipv4_address: 10.10.0.13
 
   webui:
-    platform: linux/amd64
+
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-webui
     command: bash -c "cd /open5gs/webui && npm run dev"

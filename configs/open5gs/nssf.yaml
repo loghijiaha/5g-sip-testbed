@@ -1,0 +1,29 @@
+logger:
+  level: info
+
+global:
+  max:
+    ue: 1024
+
+sbi:
+  server:
+    no_tls: true
+  client:
+    no_tls: true
+
+nssf:
+  sbi:
+    - addr: 10.10.0.19
+      port: 7777
+  nsi:
+    - s_nssai:
+        sst: 1
+      nrf:
+        sbi:
+          - addr: 10.10.0.10
+            port: 7777
+
+nrf:
+  sbi:
+    - addr: 10.10.0.10
+      port: 7777

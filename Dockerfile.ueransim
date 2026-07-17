@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
     git build-essential cmake libsctp-dev lksctp-tools \
-    iproute2 iputils-ping net-tools \
+    iproute2 baresip iputils-ping net-tools \
     && rm -rf /var/lib/apt/lists/*
 
 RUN git clone --depth 1 --branch v3.2.6 https://github.com/aligungr/UERANSIM.git /ueransim

@@ -10,9 +10,7 @@ nssf:
     server:
       - address: 10.10.0.19
         port: 7777
-      no_tls: true
     client:
-      no_tls: true
       nrf:
         - uri: http://10.10.0.10:7777
   nsi:

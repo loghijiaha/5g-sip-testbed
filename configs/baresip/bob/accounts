@@ -1,1 +1,1 @@
-<sip:bob@127.0.0.1>;regint=60
+<sip:bob@34.26.227.137>;regint=60;outbound="sip:34.26.227.137:5060"

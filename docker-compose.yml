@@ -191,8 +191,8 @@ services:
       - "30000-30100:30000-30100/udp"
     command: >
       rtpengine --foreground
-      --interface=0.0.0.0
-      --listen-ng=0.0.0.0:22222
+      --interface=10.10.0.30
+      --listen-ng=10.10.0.30:22222
       --port-min=30000
       --port-max=30100
       --log-level=6

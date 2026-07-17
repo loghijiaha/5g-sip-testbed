@@ -450,3 +450,237 @@ networks:
 
 volumes:
   mongodb_data:
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:6.0
+    container_name: mongodb
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      core:
+        ipv4_address: 10.10.0.2
+
+  nrf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-nrf
+    command: open5gs-nrfd -c /etc/open5gs/nrf.yaml
+    volumes:
+      - ./configs/open5gs/nrf.yaml:/etc/open5gs/nrf.yaml
+    depends_on: [mongodb]
+    networks:
+      core:
+        ipv4_address: 10.10.0.10
+
+  ausf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-ausf
+    command: open5gs-ausfd -c /etc/open5gs/ausf.yaml
+    volumes:
+      - ./configs/open5gs/ausf.yaml:/etc/open5gs/ausf.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.14
+
+  udm:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-udm
+    command: open5gs-udmd -c /etc/open5gs/udm.yaml
+    volumes:
+      - ./configs/open5gs/udm.yaml:/etc/open5gs/udm.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.15
+
+  nssf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-nssf
+    command: open5gs-nssfd -c /etc/open5gs/nssf.yaml
+    volumes:
+      - ./configs/open5gs/nssf.yaml:/etc/open5gs/nssf.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.19
+
+  udr:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-udr
+    command: open5gs-udrd -c /etc/open5gs/udr.yaml
+    volumes:
+      - ./configs/open5gs/udr.yaml:/etc/open5gs/udr.yaml
+    depends_on: [mongodb, nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.16
+
+  pcf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-pcf
+    command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
+    volumes:
+      - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.17
+
+  bsf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-bsf
+    command: open5gs-bsfd -c /etc/open5gs/bsf.yaml
+    volumes:
+      - ./configs/open5gs/bsf.yaml:/etc/open5gs/bsf.yaml
+    depends_on: [nrf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.18
+
+  amf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-amf
+    command: open5gs-amfd -c /etc/open5gs/amf.yaml
+    volumes:
+      - ./configs/open5gs/amf.yaml:/etc/open5gs/amf.yaml
+    depends_on: [nrf, ausf, udm, udr, pcf, bsf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.11
+
+  smf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-smf
+    command: open5gs-smfd -c /etc/open5gs/smf.yaml
+    volumes:
+      - ./configs/open5gs/smf.yaml:/etc/open5gs/smf.yaml
+    depends_on: [nrf, pcf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.12
+
+  upf:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-upf
+    command: >
+      bash -c "
+        ip tuntap add name ogstun mode tun &&
+        ip addr add 10.45.0.1/16 dev ogstun &&
+        ip link set ogstun up &&
+        sysctl -w net.ipv4.ip_forward=1 &&
+        iptables -t nat -A POSTROUTING -s 10.45.0.0/16 ! -o ogstun -j MASQUERADE &&
+        open5gs-upfd -c /etc/open5gs/upf.yaml
+      "
+    privileged: true
+    cap_add: [NET_ADMIN]
+    volumes:
+      - ./configs/open5gs/upf.yaml:/etc/open5gs/upf.yaml
+    depends_on: [smf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.13
+
+  webui:
+    build: { context: ., dockerfile: Dockerfile.open5gs }
+    container_name: open5gs-webui
+    command: bash -c "cd /open5gs/webui && npm run dev"
+    environment:
+      - DB_URI=mongodb://mongodb/open5gs
+      - HOSTNAME=0.0.0.0
+    ports:
+      - "9999:9999"
+    depends_on: [mongodb]
+    networks:
+      core:
+        ipv4_address: 10.10.0.3
+
+  gnb:
+    build: { context: ., dockerfile: Dockerfile.ueransim }
+    container_name: ueransim-gnb
+    command: nr-gnb -c /config/gnb.yaml
+    privileged: true
+    volumes:
+      - ./configs/ueransim/gnb.yaml:/config/gnb.yaml
+    depends_on: [amf, upf]
+    networks:
+      core:
+        ipv4_address: 10.10.0.20
+
+  ue1:
+    build: { context: ., dockerfile: Dockerfile.ueransim }
+    container_name: ueransim-ue1
+    command: bash -c "sleep 5 && nr-ue -c /config/ue1.yaml"
+    privileged: true
+    cap_add: [NET_ADMIN]
+    volumes:
+      - ./configs/ueransim/ue1.yaml:/config/ue1.yaml
+    depends_on: [gnb]
+    networks:
+      core:
+        ipv4_address: 10.10.0.21
+
+  ue2:
+    build: { context: ., dockerfile: Dockerfile.ueransim }
+    container_name: ueransim-ue2
+    command: bash -c "sleep 7 && nr-ue -c /config/ue2.yaml"
+    privileged: true
+    cap_add: [NET_ADMIN]
+    volumes:
+      - ./configs/ueransim/ue2.yaml:/config/ue2.yaml
+    depends_on: [gnb]
+    networks:
+      core:
+        ipv4_address: 10.10.0.22
+
+  kamailio:
+    image: ghcr.io/kamailio/kamailio-ci:5.7
+    container_name: kamailio
+    ports:
+      - "5060:5060/udp"
+      - "5060:5060/tcp"
+    volumes:
+      - ./configs/kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
+    command: >
+      bash -c "
+        EXTERNAL_IP=$$(curl -s ifconfig.me) &&
+        sed -i \"s/advertised_address=.*/advertised_address=\\\"$$EXTERNAL_IP\\\"/\" /etc/kamailio/kamailio.cfg &&
+        kamailio -f /etc/kamailio/kamailio.cfg -DD -E
+      "
+    depends_on: [rtpengine]
+    networks:
+      core:
+        ipv4_address: 10.10.0.40
+
+  rtpengine:
+    build: { context: ., dockerfile: Dockerfile.rtpengine }
+    container_name: rtpengine
+    privileged: true
+    ports:
+      - "30000-30100:30000-30100/udp"
+    command: >
+      bash -c "
+        EXTERNAL_IP=$$(curl -s ifconfig.me) &&
+        echo \"External IP: $$EXTERNAL_IP\" &&
+        rtpengine --foreground
+        --interface=10.10.0.30!$$EXTERNAL_IP
+        --listen-ng=10.10.0.30:22222
+        --port-min=30000
+        --port-max=30100
+        --log-level=6
+        --table=-1
+      "
+    networks:
+      core:
+        ipv4_address: 10.10.0.30
+
+networks:
+  core:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.0.0/16
+
+volumes:
+  mongodb_data:

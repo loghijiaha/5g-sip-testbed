@@ -2,15 +2,21 @@ global:
   max:
     ue: 1024
 
+sbi:
+  server:
+    no_tls: true
+  client:
+    no_tls: true
+
+nrf:
+  sbi:
+    - addr: 10.10.0.10
+      port: 7777
+
 nssf:
   sbi:
-    server:
-      - address: 10.10.0.19
-        port: 7777
-    client:
-      no_tls: true
-      nrf:
-        - uri: http://10.10.0.10:7777
+    - addr: 10.10.0.19
+      port: 7777
   nsi:
     - addr: 10.10.0.12
       port: 7777

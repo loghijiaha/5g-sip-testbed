@@ -7,7 +7,22 @@ services:
     networks:
       core:
         ipv4_address: 10.10.0.2
-
+  
+  subscriber-init:
+    image: mongo:6.0
+    container_name: subscriber-init
+    depends_on: [mongodb]
+    restart: "no"
+    entrypoint: >
+      bash -c "
+        sleep 5 &&
+        mongosh mongodb://10.10.0.2/open5gs /scripts/register-subscribers.sh
+      "
+    volumes:
+      - ./scripts/register-subscribers.sh:/scripts/register-subscribers.sh
+    networks:
+      core:
+        ipv4_address: 10.10.0.4
   nrf:
     image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-nrf
@@ -162,7 +177,7 @@ services:
     cap_add: [NET_ADMIN]
     volumes:
       - ./configs/ueransim/ue1.yaml:/config/ue1.yaml
-    depends_on: [gnb]
+    depends_on: [gnb, subscriber-init]
     networks:
       core:
         ipv4_address: 10.10.0.21
@@ -175,7 +190,7 @@ services:
     cap_add: [NET_ADMIN]
     volumes:
       - ./configs/ueransim/ue2.yaml:/config/ue2.yaml
-    depends_on: [gnb]
+    depends_on: [gnb, subscriber-init]
     networks:
       core:
         ipv4_address: 10.10.0.22

@@ -55,9 +55,10 @@ services:
         ipv4_address: 10.10.0.19
 
   udr:
-    build: { context: ., dockerfile: Dockerfile.open5gs }
+    image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-udr
     command: open5gs-udrd -c /etc/open5gs/udr.yaml
+    restart: on-failure
     volumes:
       - ./configs/open5gs/udr.yaml:/etc/open5gs/udr.yaml
     depends_on: [mongodb, nrf]
@@ -66,12 +67,13 @@ services:
         ipv4_address: 10.10.0.16
 
   pcf:
-    build: { context: ., dockerfile: Dockerfile.open5gs }
+    image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-pcf
     command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
+    restart: on-failure
     volumes:
       - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
-    depends_on: [nrf]
+    depends_on: [mongodb, nrf]
     networks:
       core:
         ipv4_address: 10.10.0.17

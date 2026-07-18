@@ -185,6 +185,8 @@ services:
   kamailio:
     image: ghcr.io/kamailio/kamailio-ci:5.7
     container_name: kamailio
+    environment:
+      - EXTERNAL_IP=${EXTERNAL_IP}
     ports:
       - "5060:5060/udp"
       - "5060:5060/tcp"
@@ -192,7 +194,6 @@ services:
       - ./configs/kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
     command: >
       bash -c "
-        EXTERNAL_IP=$$(curl -s ifconfig.me) &&
         sed -i \"s/advertised_address=.*/advertised_address=\\\"$$EXTERNAL_IP\\\"/\" /etc/kamailio/kamailio.cfg &&
         kamailio -f /etc/kamailio/kamailio.cfg -DD -E
       "
@@ -205,12 +206,12 @@ services:
     build: { context: ., dockerfile: Dockerfile.rtpengine }
     container_name: rtpengine
     privileged: true
+    environment:
+      - EXTERNAL_IP=${EXTERNAL_IP}
     ports:
       - "30000-30100:30000-30100/udp"
     command: >
       bash -c "
-        EXTERNAL_IP=$$(curl -s ifconfig.me) &&
-        echo \"External IP: $$EXTERNAL_IP\" &&
         rtpengine --foreground
         --interface=10.10.0.30!$$EXTERNAL_IP
         --listen-ng=10.10.0.30:22222

@@ -16,7 +16,7 @@ services:
     entrypoint: sh /scripts/register-subscribers.sh
     volumes:
       - ./scripts/register-subscribers.sh:/scripts/register-subscribers.sh
-    networks:
+    networks:	
       core:
         ipv4_address: 10.10.0.4
 

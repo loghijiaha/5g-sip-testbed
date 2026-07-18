@@ -3,14 +3,13 @@
 ## Architecture
 
 ```
-Alice (Mac/Laptop) ──SIP/RTP──> Kamailio (VM) ──RTP──> RTPengine (Docker)
-                                     │                        │
-                                     └── SIP ──> Bob (UE2, Docker)
-                                                   │
-                                              uesimtun0 (5G tunnel)
-                                                   │
-                                         gNB ── UPF ── Internet
-                                              (Open5GS 5G Core)
+Alice (VM native) ──SIP──> Kamailio (VM native) ──SIP──> Bob (UE2, Docker)
+       │                         │                          │
+       │                    RTPengine (Docker)          uesimtun0
+       │                         │                          │
+       └────── RTP ──────────────┘──── RTP ─────── 5G tunnel (gNB → UPF)
+                                                          │
+                                                   Open5GS 5G Core
 ```
 
 ## Prerequisites

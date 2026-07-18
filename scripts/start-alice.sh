@@ -7,7 +7,7 @@ EXTERNAL_IP=$(curl -s ifconfig.me)
 mkdir -p configs/baresip/alice
 
 cat > configs/baresip/alice/accounts << ACCOUNTS
-sip:alice@${EXTERNAL_IP};regint=60;outbound="sip:${EXTERNAL_IP}:5060"
+sip:alice@${EXTERNAL_IP};regint=60;outbound="sip:${EXTERNAL_IP}:5070"
 ACCOUNTS
 
 echo "=== Alice's SIP account ==="

@@ -6,7 +6,6 @@ set -e
 
 CONTAINER="ueransim-ue2"
 EXTERNAL_IP=$(curl -s ifconfig.me)
-
 echo "=== External IP: $EXTERNAL_IP ==="
 
 # Wait for uesimtun0
@@ -30,55 +29,25 @@ docker exec $CONTAINER ip route add $EXTERNAL_IP dev uesimtun0 2>/dev/null || tr
 echo "=== Route to $EXTERNAL_IP via uesimtun0 ==="
 
 # Kill any existing baresip
-docker exec $CONTAINER pkill -f baresip 2>/dev/null || true
+docker exec $CONTAINER sh -c 'kill $(pidof baresip) 2>/dev/null' || true
 sleep 1
 
-# Write baresip config
-docker exec $CONTAINER bash -c "
-mkdir -p /root/.baresip
+# Copy config into container
+docker exec $CONTAINER mkdir -p /root/.baresip
+docker cp configs/baresip/bob/config $CONTAINER:/root/.baresip/config
+docker cp configs/baresip/bob/tx.wav $CONTAINER:/tmp/tx.wav
 
-cat > /root/.baresip/accounts << EOF
-sip:bob@${EXTERNAL_IP};regint=60;outbound=\"sip:${EXTERNAL_IP}:5060\"
-EOF
+# Write accounts with actual IP
+docker exec $CONTAINER sh -c "echo 'sip:bob@${EXTERNAL_IP};regint=60;outbound=\"sip:${EXTERNAL_IP}:5060\"' > /root/.baresip/accounts"
 
-cat > /root/.baresip/config << EOF
-# SIP
-sip_listen 0.0.0.0:5080
-sip_tos 160
+# Create empty rx.wav placeholder
+docker exec $CONTAINER touch /tmp/rx.wav
 
-# Call
-call_local_timeout 120
-call_max_calls 4
-
-# Audio
-ausrc_format s16
-auplay_format s16
-auenc_format s16
-audec_format s16
-audio_buffer 20-160
-audio_buffer_mode fixed
-audio_telev_pt 101
-
-# Network - force through 5G tunnel
-net_interface uesimtun0
-
-# RTP
-rtp_tos 184
-
-# Modules
-module_path /usr/lib/baresip/modules
-module g711.so
-EOF
-"
-
-echo "=== Bob's config written ==="
+echo "=== Bob's config ==="
 echo "  Account: sip:bob@${EXTERNAL_IP}"
 echo "  Listen:  0.0.0.0:5080"
 echo "  Network: uesimtun0 ($UE_IP)"
 echo "=== Starting baresip... ==="
-echo ""
-echo "  Once ready, type: /uanew sip:bob@${EXTERNAL_IP};regint=60;outbound=\"sip:${EXTERNAL_IP}:5060\""
-echo ""
 
 # Start baresip
 docker exec -e HOME=/root -it $CONTAINER baresip -f /root/.baresip

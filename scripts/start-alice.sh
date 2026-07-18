@@ -2,7 +2,7 @@
 # Start Alice's baresip SIP client
 # Usage: ./scripts/start-alice.sh
 
-EXTERNAL_IP=$(curl -s ifconfig.me)
+EXTERNAL_IP=35.231.170.222
 
 mkdir -p configs/baresip/alice
 

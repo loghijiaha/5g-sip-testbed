@@ -9,13 +9,13 @@ services:
         ipv4_address: 10.10.0.2
 
   subscriber-init:
-    image: mongo:6.0
+    image: curlimages/curl:latest
     container_name: subscriber-init
     depends_on: [mongodb]
     restart: "no"
-    entrypoint: bash -c "sleep 5 && mongosh mongodb://10.10.0.2/open5gs /scripts/register-subscribers.js"
+    entrypoint: sh /scripts/register-subscribers.sh
     volumes:
-      - ./scripts/register-subscribers.js:/scripts/register-subscribers.js
+      - ./scripts/register-subscribers.sh:/scripts/register-subscribers.sh
     networks:
       core:
         ipv4_address: 10.10.0.4
@@ -81,7 +81,7 @@ services:
     command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
     volumes:
       - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
-    depends_on: [nrf]
+    depends_on: [mongodb, nrf]
     networks:
       core:
         ipv4_address: 10.10.0.17

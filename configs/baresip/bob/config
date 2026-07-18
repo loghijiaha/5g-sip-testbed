@@ -18,7 +18,7 @@ net_interface           uesimtun0
 module_path             /usr/lib/baresip/modules
 module                  stdio.so
 module                  g711.so
-module                  aufile.so
+#module                  aufile.so
 module                  stun.so
 module                  turn.so
 module                  ice.so

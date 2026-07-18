@@ -25,8 +25,22 @@ Alice (Mac/Laptop) ──SIP/RTP──> Kamailio (VM) ──RTP──> RTPengine
 ### 1. Start 5G Core + RTPengine (Docker)
 
 ```bash
-docker compose -f docker-compose.vm.yml up
+docker compose -f docker-compose.vm.yml down
+docker compose -f docker-compose.vm.yml up -d mongodb
+sleep 5
+docker compose -f docker-compose.vm.yml up -d nrf
+sleep 5
+docker compose -f docker-compose.vm.yml up -d ausf udm udr pcf bsf nssf
+sleep 5
+docker compose -f docker-compose.vm.yml up -d amf smf
+sleep 3
+docker compose -f docker-compose.vm.yml up -d upf rtpengine webui
+sleep 3
+docker compose -f docker-compose.vm.yml up -d gnb
+sleep 5
+docker compose -f docker-compose.vm.yml up -d ue1 ue2
 ```
+
 
 Wait ~30 seconds for all NFs to register and UEs to connect.
 
@@ -126,24 +140,7 @@ docker logs -f rtpengine
 | Bob not registering | Check route: `docker exec ueransim-ue2 ip route get <EXTERNAL_IP>` must show `dev uesimtun0` |
 | SIP spam eating ports | Increase `--port-max` to 31000 in compose |
 
-### Staged restart (if UEs fail to register with 5G core)
 
-```bash
-docker compose -f docker-compose.vm.yml down
-docker compose -f docker-compose.vm.yml up -d mongodb
-sleep 5
-docker compose -f docker-compose.vm.yml up -d nrf
-sleep 5
-docker compose -f docker-compose.vm.yml up -d ausf udm udr pcf bsf nssf
-sleep 5
-docker compose -f docker-compose.vm.yml up -d amf smf
-sleep 3
-docker compose -f docker-compose.vm.yml up -d upf rtpengine webui
-sleep 3
-docker compose -f docker-compose.vm.yml up -d gnb
-sleep 5
-docker compose -f docker-compose.vm.yml up -d ue1 ue2
-```
 
 ## Clean Reset
 

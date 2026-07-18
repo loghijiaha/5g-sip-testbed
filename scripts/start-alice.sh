@@ -2,16 +2,16 @@
 # Start Alice's baresip on VM
 # Usage: ./scripts/start-alice.sh
 
-EXTERNAL_IP=$(curl -s ifconfig.me)
+EXTERNAL_IP=34.10.205.251
 
 mkdir -p configs/baresip/alice
 
 cat > configs/baresip/alice/accounts << ACCOUNTS
-sip:alice@${EXTERNAL_IP};regint=60;outbound="sip:${EXTERNAL_IP}:5030"
+sip:alice@${EXTERNAL_IP};regint=60;outbound="sip:${EXTERNAL_IP}:5060"
 ACCOUNTS
 
 echo "=== Alice's SIP account ==="
-echo "  Server: ${EXTERNAL_IP}:5030"
+echo "  Server: ${EXTERNAL_IP}:5060"
 echo "  User:   alice@${EXTERNAL_IP}"
 echo "============================"
 echo ""

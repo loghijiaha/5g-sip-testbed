@@ -83,7 +83,7 @@ rtp_stats		no
 #------------------------------------------------------------------------------
 # Modules
 
-module_path		/usr/lib/baresip/modules
+module_path		/opt/homebrew/Cellar/baresip/4.9.0/lib/baresip/modules
 
 # UI Modules
 module			stdio.so

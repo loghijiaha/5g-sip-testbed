@@ -4,6 +4,12 @@
 
 EXTERNAL_IP=$(curl -s ifconfig.me)
 
+# Kill anything on Alice's port
+fuser -k 5090/udp 2>/dev/null
+fuser -k 5090/tcp 2>/dev/null
+killall baresip 2>/dev/null
+sleep 1
+
 mkdir -p configs/baresip/alice
 
 cat > configs/baresip/alice/accounts << ACCOUNTS

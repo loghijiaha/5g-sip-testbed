@@ -184,20 +184,6 @@ services:
       core:
         ipv4_address: 10.10.0.22
 
-  kamailio:
-    image: ghcr.io/kamailio/kamailio-ci:5.7
-    container_name: kamailio
-    ports:
-      - "5060:5060/udp"
-      - "5060:5060/tcp"
-    volumes:
-      - ./configs/kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
-    command: bash -c "apt-get update && apt-get install -y curl > /dev/null 2>&1; EXTERNAL_IP=$$(curl -s ifconfig.me) && sed -i \"s/ADVERTISED_IP/$$EXTERNAL_IP/g\" /etc/kamailio/kamailio.cfg && kamailio -f /etc/kamailio/kamailio.cfg -DD -E"
-    depends_on: [rtpengine]
-    networks:
-      core:
-        ipv4_address: 10.10.0.40
-
   rtpengine:
     image: loghijiaha/5g-sip-rtpengine:latest
     container_name: rtpengine

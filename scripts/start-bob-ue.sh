@@ -35,13 +35,9 @@ sleep 1
 # Copy config into container
 docker exec $CONTAINER mkdir -p /root/.baresip
 docker cp configs/baresip/bob/config $CONTAINER:/root/.baresip/config
-docker cp configs/baresip/bob/tx.wav $CONTAINER:/tmp/tx.wav
 
 # Write accounts with actual IP
 docker exec $CONTAINER sh -c "echo 'sip:bob@${EXTERNAL_IP};regint=60;outbound=\"sip:${EXTERNAL_IP}:5060\"' > /root/.baresip/accounts"
-
-# Create empty rx.wav placeholder
-docker exec $CONTAINER touch /tmp/rx.wav
 
 echo "=== Bob's config ==="
 echo "  Account: sip:bob@${EXTERNAL_IP}"

@@ -2,7 +2,7 @@
 # Start Alice's baresip on VM
 # Usage: ./scripts/start-alice.sh
 
-EXTERNAL_IP=34.10.205.251
+EXTERNAL_IP=$(curl -s ifconfig.me)
 
 mkdir -p configs/baresip/alice
 

@@ -190,12 +190,7 @@ services:
       - "5060:5060/tcp"
     volumes:
       - ./configs/kamailio/kamailio.cfg:/etc/kamailio/kamailio.cfg
-    command: >
-      bash -c "
-        EXTERNAL_IP=$$(curl -s ifconfig.me) &&
-        sed -i \"s/advertised_address=.*/advertised_address=\\\"$$EXTERNAL_IP\\\"/\" /etc/kamailio/kamailio.cfg &&
-        kamailio -f /etc/kamailio/kamailio.cfg -DD -E
-      "
+    command: bash -c "EXTERNAL_IP=$$(curl -s ifconfig.me) && sed -i \"s/ADVERTISED_IP/$$EXTERNAL_IP/g\" /etc/kamailio/kamailio.cfg && kamailio -f /etc/kamailio/kamailio.cfg -DD -E"
     depends_on: [rtpengine]
     networks:
       core:
@@ -207,17 +202,7 @@ services:
     privileged: true
     ports:
       - "30000-30100:30000-30100/udp"
-    command: >
-      bash -c "
-	EXTERNAL_IP=$$(curl -s ifconfig.me) && 
-        rtpengine --foreground
-        --interface=10.10.0.30!$$EXTERNAL_IP
-        --listen-ng=10.10.0.30:22222
-        --port-min=30000
-        --port-max=30100
-        --log-level=6
-        --table=-1
-      "
+    command: bash -c "EXTERNAL_IP=$$(curl -s ifconfig.me) && rtpengine --foreground --interface=10.10.0.30!$$EXTERNAL_IP --listen-ng=10.10.0.30:22222 --port-min=30000 --port-max=30100 --log-level=6 --table=-1"
     networks:
       core:
         ipv4_address: 10.10.0.30

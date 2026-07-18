@@ -67,7 +67,7 @@ services:
   pcf:
     image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-pcf
-    command: bash -c "for i in 1 2 3 4 5; do open5gs-pcfd -c /etc/open5gs/pcf.yaml && break || sleep 3; done"
+    command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
     volumes:
       - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
     depends_on: [mongodb, nrf]
@@ -78,7 +78,7 @@ services:
   udr:
     image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-udr
-    command: bash -c "for i in 1 2 3 4 5; do open5gs-udrd -c /etc/open5gs/udr.yaml && break || sleep 3; done"
+    command: open5gs-udrd -c /etc/open5gs/udr.yaml
     volumes:
       - ./configs/open5gs/udr.yaml:/etc/open5gs/udr.yaml
     depends_on: [mongodb, nrf]

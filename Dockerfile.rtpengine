@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
     git build-essential pkg-config \
-    gperf pandoc \
+    gperf pandoc curl \
     libglib2.0-dev libssl-dev libpcre3-dev \
     libxmlrpc-core-c3-dev libjson-glib-dev \
     libhiredis-dev libcurl4-openssl-dev \

@@ -16,8 +16,8 @@ Alice (Mac/Laptop) ──SIP/RTP──> Kamailio (VM) ──RTP──> RTPengine
 ## Prerequisites
 
 - GCP VM (Debian/Ubuntu) with Docker & Docker Compose
-- Kamailio installed natively on VM (`apt install kamailio kamailio-rtpengine-modules`)
-- baresip v4.9.0 on your Mac (`brew install baresip`)
+- Kamailio installed natively on VM (`sudo apt install kamailio kamailio-mysql-modules`)
+- baresip v4.9.0 on your Linux/Mac (`sudo apt install baresip / brew install baresip`)
 - GCP firewall rules: allow UDP 5060, 30000-31000
 
 ## Quick Start
@@ -25,7 +25,7 @@ Alice (Mac/Laptop) ──SIP/RTP──> Kamailio (VM) ──RTP──> RTPengine
 ### 1. Start 5G Core + RTPengine (Docker)
 
 ```bash
-docker compose -f docker-compose.vm.yml up -d
+docker compose -f docker-compose.vm.yml up
 ```
 
 Wait ~30 seconds for all NFs to register and UEs to connect.

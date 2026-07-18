@@ -66,7 +66,7 @@ Open a new terminal:
 
 Bob will register with Kamailio through the 5G data plane.
 
-### 5. Start Alice (Mac)
+### 5. Start Alice (VM native)
 
 On your Mac:
 

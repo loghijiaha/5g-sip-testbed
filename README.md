@@ -24,20 +24,7 @@ Alice (VM native) ──SIP──> Kamailio (VM native) ──SIP──> Bob (UE
 ### 1. Start 5G Core + RTPengine (Docker)
 
 ```bash
-docker compose -f docker-compose.vm.yml down
-docker compose -f docker-compose.vm.yml up -d mongodb
-sleep 5
-docker compose -f docker-compose.vm.yml up -d nrf
-sleep 5
-docker compose -f docker-compose.vm.yml up -d ausf udm udr pcf bsf nssf
-sleep 5
-docker compose -f docker-compose.vm.yml up -d amf smf
-sleep 3
-docker compose -f docker-compose.vm.yml up -d upf rtpengine webui
-sleep 3
-docker compose -f docker-compose.vm.yml up -d gnb
-sleep 5
-docker compose -f docker-compose.vm.yml up -d ue1 ue2
+docker compose -f docker-compose.vm.yml up
 ```
 
 

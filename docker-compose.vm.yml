@@ -4,6 +4,12 @@ services:
     container_name: mongodb
     volumes:
       - mongodb_data:/data/db
+    healthcheck:
+      test: mongosh --eval "db.runCommand('ping').ok" --quiet
+      interval: 3s
+      timeout: 3s
+      retries: 15
+      start_period: 5s
     networks:
       core:
         ipv4_address: 10.10.0.2
@@ -11,7 +17,9 @@ services:
   subscriber-init:
     image: mongo:6.0
     container_name: subscriber-init
-    depends_on: [mongodb]
+    depends_on:
+      mongodb:
+        condition: service_healthy
     restart: "no"
     entrypoint: bash /scripts/register-subscribers.sh
     volumes:
@@ -26,7 +34,9 @@ services:
     command: open5gs-nrfd -c /etc/open5gs/nrf.yaml
     volumes:
       - ./configs/open5gs/nrf.yaml:/etc/open5gs/nrf.yaml
-    depends_on: [mongodb]
+    depends_on:
+      mongodb:
+        condition: service_healthy
     networks:
       core:
         ipv4_address: 10.10.0.10
@@ -64,27 +74,35 @@ services:
       core:
         ipv4_address: 10.10.0.19
 
-  pcf:
-    image: loghijiaha/5g-sip-open5gs:latest
-    container_name: open5gs-pcf
-    command: open5gs-pcfd -c /etc/open5gs/pcf.yaml
-    volumes:
-      - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
-    depends_on: [mongodb, nrf]
-    networks:
-      core:
-        ipv4_address: 10.10.0.17
-
   udr:
     image: loghijiaha/5g-sip-open5gs:latest
     container_name: open5gs-udr
-    command: open5gs-udrd -c /etc/open5gs/udr.yaml
+    command: bash -c "for i in 1 2 3 4 5; do open5gs-udrd -c /etc/open5gs/udr.yaml && break || sleep 3; done"
     volumes:
       - ./configs/open5gs/udr.yaml:/etc/open5gs/udr.yaml
-    depends_on: [mongodb, nrf]
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      nrf:
+        condition: service_started
     networks:
       core:
         ipv4_address: 10.10.0.16
+
+  pcf:
+    image: loghijiaha/5g-sip-open5gs:latest
+    container_name: open5gs-pcf
+    command: bash -c "for i in 1 2 3 4 5; do open5gs-pcfd -c /etc/open5gs/pcf.yaml && break || sleep 3; done"
+    volumes:
+      - ./configs/open5gs/pcf.yaml:/etc/open5gs/pcf.yaml
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      nrf:
+        condition: service_started
+    networks:
+      core:
+        ipv4_address: 10.10.0.17
 
   bsf:
     image: loghijiaha/5g-sip-open5gs:latest
@@ -141,7 +159,9 @@ services:
       - HOSTNAME=0.0.0.0
     ports:
       - "9999:9999"
-    depends_on: [mongodb]
+    depends_on:
+      mongodb:
+        condition: service_healthy
     networks:
       core:
         ipv4_address: 10.10.0.3

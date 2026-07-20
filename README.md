@@ -1,6 +1,6 @@
 # 5G SIP Testbed - Setup & Run Guide
 
-<video src="demo/demo_5g_call.mp4" width="720" autoplay loop muted playsinline>
+<video src="https://github.com/user-attachments/assets/e48444c1-8d6a-4a3b-b9a6-49b944a808d9" width="720" autoplay loop muted playsinline>
 </video>
 
 ## Architecture

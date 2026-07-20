@@ -1,0 +1,7 @@
+#tail -f /tmp/kamailio.log | grep -E 'bob|loghi|alice|200|OK'
+ 3(512465) INFO: <script>: REGISTER sip:alice@136.111.254.162 [OK]
+ 2(512464) INFO: <script>: REGISTER sip:bob@136.111.254.162 [OK]
+ 1(512463) INFO: <script>: INVITE sip:alice@136.111.254.162 -> sip:bob@136.111.254.162
+ 3(512465) INFO: <script>: 200 Answering
+ 2(512464) INFO: <script>: ACK sip:alice@136.111.254.162 -> sip:bob@136.111.254.162
+ 1(512463) INFO: <script>: BYE sip:alice@136.111.254.162 -> sip:bob@136.111.254.162

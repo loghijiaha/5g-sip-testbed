@@ -10,6 +10,18 @@ services:
       core:
         ipv4_address: 10.10.0.2
 
+  subscriber-init:
+    image: mongo:6.0
+    container_name: subscriber-init
+    depends_on: [mongodb]
+    restart: "no"
+    entrypoint: bash /scripts/register-subscribers.sh
+    volumes:
+      - ./scripts/register-subscribers.sh:/scripts/register-subscribers.sh
+    networks:
+      core:
+        ipv4_address: 10.10.0.4
+
   nrf:
     build: { context: ., dockerfile: Dockerfile.open5gs }
     container_name: open5gs-nrf

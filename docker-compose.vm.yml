@@ -9,14 +9,14 @@ services:
         ipv4_address: 10.10.0.2
 
   subscriber-init:
-    image: curlimages/curl:latest
+    image: mongo:6.0
     container_name: subscriber-init
     depends_on: [mongodb]
     restart: "no"
-    entrypoint: sh /scripts/register-subscribers.sh
+    entrypoint: bash /scripts/register-subscribers.sh
     volumes:
       - ./scripts/register-subscribers.sh:/scripts/register-subscribers.sh
-    networks:	
+    networks:
       core:
         ipv4_address: 10.10.0.4
 

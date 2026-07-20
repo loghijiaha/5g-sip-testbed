@@ -1,3 +1,4 @@
+cat > docker-compose.vm.yml << 'EOF'
 services:
   mongodb:
     image: mongo:6.0
@@ -204,7 +205,7 @@ services:
       core:
         ipv4_address: 10.10.0.22
 
-   rtpengine:
+  rtpengine:
     image: loghijiaha/5g-sip-rtpengine:latest
     container_name: rtpengine
     privileged: true

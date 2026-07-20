@@ -1,3 +1,4 @@
+cat > scripts/start-bob-ue.sh << 'EOF'
 #!/bin/bash
 # Start Bob's baresip inside UE2 container (through 5G tunnel)
 # Usage: ./scripts/start-bob-ue.sh
@@ -28,11 +29,15 @@ fi
 docker exec $CONTAINER ip route add $EXTERNAL_IP dev uesimtun0 2>/dev/null || true
 echo "=== Route to $EXTERNAL_IP via uesimtun0 ==="
 
+# Add route on VM for Kamailio/RTPengine to reach Bob
+sudo ip route add 10.45.0.0/16 via 10.10.0.13 2>/dev/null || true
+echo "=== VM route to 10.45.0.0/16 via UPF ==="
+
 # Kill any existing baresip
 docker exec $CONTAINER sh -c 'kill $(pidof baresip) 2>/dev/null' || true
 sleep 1
 
-# Copy config into container
+# Copy config and WAV file into container
 docker exec $CONTAINER mkdir -p /root/.baresip
 docker cp configs/baresip/bob/config $CONTAINER:/root/.baresip/config
 
@@ -47,3 +52,6 @@ echo "=== Starting baresip... ==="
 
 # Start baresip
 docker exec -e HOME=/root -it $CONTAINER baresip -f /root/.baresip
+EOF
+
+chmod +x scripts/start-bob-ue.sh

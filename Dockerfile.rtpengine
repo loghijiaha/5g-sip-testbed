@@ -31,4 +31,4 @@ RUN cp rtpengine /usr/local/bin/
 EXPOSE 22222/udp
 EXPOSE 30000-31000/udp
 
-CMD ["rtpengine", "--foreground", "--interface=0.0.0.0", "--listen-ng=0.0.0.0:22222", "--port-min=30000", "--port-max=31000", "--log-level=6"]
+CMD ["rtpengine", "--foreground", "--interface=0.0.0.0", "--listen-ng=0.0.0.0:22222", "--port-min=30000", "--port-max=31000", "--log-level=7"]

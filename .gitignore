@@ -8,4 +8,4 @@ logs/*.pcap
 .DS_Store
 
 # Demo video (too large for git, use Git LFS or link)
-demo/*.mp4
+demo/*.mov

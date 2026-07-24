@@ -83,58 +83,7 @@ From Alice's baresip console:
 /dial sip:bob@<VM_EXTERNAL_IP>
 ```
 
-Bob auto-answers. Audio flows through RTPengine.
-
-## Verification
-
-### Verify SIP through 5G
-
-```bash
-docker exec open5gs-upf tcpdump -i ogstun -n port 5060 -c 5
-```
-
-### Verify RTP through 5G
-
-```bash
-docker exec open5gs-upf tcpdump -i ogstun -n udp and not port 5060 -c 20
-```
-
-### View Kamailio logs
-
-```bash
-tail -f /tmp/kamailio.log
-```
-
-Or filter:
-
-```bash
-grep -E "REGISTER|INVITE|ACK|BYE|200" /tmp/kamailio.log
-```
-
-### View RTPengine logs
-
-```bash
-docker logs -f rtpengine
-```
-
-## Scripts
-
-| Script | Purpose |
-|--------|---------|
-| `scripts/kamailio.sh` | Start Kamailio on VM |
-| `scripts/start-bob-ue.sh` | Start Bob in UE2 through 5G |
-| `scripts/start-alice.sh` | Start Alice on Mac |
-
-## Troubleshooting
-
-| Issue | Fix |
-|-------|-----|
-| UE2 no uesimtun0 | Wait longer or staged restart (see below) |
-| RTPengine out of ports | `docker compose -f docker-compose.vm.yml restart rtpengine` |
-| Kamailio can't reach RTPengine | Verify: `docker logs rtpengine --tail 3` |
-| Bob not registering | Check route: `docker exec ueransim-ue2 ip route get <EXTERNAL_IP>` must show `dev uesimtun0` |
-| SIP spam eating ports | Increase `--port-max` to 31000 in compose |
-
+Bob answers. Audio flows through RTPengine.
 
 
 ## Clean Reset
@@ -142,6 +91,7 @@ docker logs -f rtpengine
 ```bash
 docker compose -f docker-compose.vm.yml down
 sudo killall kamailio 2>/dev/null
+sudo killall rtpengine 2>/dev/null
 docker system prune -a --volumes -f
 ```
 

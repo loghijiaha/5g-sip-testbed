@@ -1,0 +1,363 @@
+[1784879574.552615] INFO: [crypto] Generating new DTLS certificate
+[1784879574.552677] DEBUG: [crypto] Using EC-prime256v1 key for DTLS certificate
+[1784879574.555544] DEBUG: [srtp] Dump of DTLS certificate:
+[1784879574.555569] DEBUG: [srtp] --- -----BEGIN CERTIFICATE-----
+[1784879574.555572] DEBUG: [srtp] --- MIIBLzCB1gIJAIFWJgI/Cu0FMAoGCCqGSM49BAMCMCAxHjAcBgNVBAMMFXJ0cGVu
+[1784879574.555575] DEBUG: [srtp] --- Z2luZS0xMi01LTEtMzEtMTAeFw0yNjA3MjMwNzUyNTRaFw0yNjA4MjMwNzUyNTRa
+[1784879574.555577] DEBUG: [srtp] --- MCAxHjAcBgNVBAMMFXJ0cGVuZ2luZS0xMi01LTEtMzEtMTBZMBMGByqGSM49AgEG
+[1784879574.555581] DEBUG: [srtp] --- CCqGSM49AwEHA0IABIlZOundntdgUAl7sTLfgDA9wFAPPP6DsMK27INfmhzuSojC
+[1784879574.555583] DEBUG: [srtp] --- qqQsS45dd+zC/4+WxfwDnNN3CRFH2AaNpJknSv4wCgYIKoZIzj0EAwIDSAAwRQIg
+[1784879574.555586] DEBUG: [srtp] --- QATz815LNDYr7OZHQhWcO67s95hPPoehs/L3wWvabiMCIQCQCuNSyy85HeaD2W3S
+[1784879574.555588] DEBUG: [srtp] --- OBHCWz3WDxsTkqtD2QwHh+F3Ng==
+[1784879574.555591] DEBUG: [srtp] --- -----END CERTIFICATE-----
+[1784879574.555679] DEBUG: [srtp] Dump of DTLS private key:
+[1784879574.555690] DEBUG: [srtp] --- -----BEGIN PRIVATE KEY-----
+[1784879574.555692] DEBUG: [srtp] --- MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgQQdRUDMUaAIfanxD
+[1784879574.555730] DEBUG: [srtp] --- gDfeyV8YCVImgjbtj1iAU6c8BeuhRANCAASJWTrp3Z7XYFAJe7Ey34AwPcBQDzz+
+[1784879574.555736] DEBUG: [srtp] --- g7DCtuyDX5oc7kqIwqqkLEuOXXfswv+PlsX8A5zTdwkRR9gGjaSZJ0r+
+[1784879574.555740] DEBUG: [srtp] --- -----END PRIVATE KEY-----
+[1784879574.611477] ERR: [core] FAILED TO CREATE NFTABLES CHAINS OR RULES, KERNEL FORWARDING POSSIBLY WON'T WORK: error returned from netlink for add rule (No such file or directory)
+[1784879574.611625] ERR: [core] FAILED TO CREATE KERNEL TABLE 0 (No such file or directory), KERNEL FORWARDING DISABLED
+[1784879574.614405] DEBUG: [core] Codec QCELP is only supported for decoding by codec library
+[1784879574.614489] DEBUG: [core] Codec iLBC is only supported for decoding by codec library
+[1784879574.614552] DEBUG: [core] Codec EVS is not supported by codec library
+[1784879574.614868] DEBUG: [core] Codec ATRAC3 is only supported for decoding by codec library
+[1784879574.614921] DEBUG: [core] Codec ATRAC-X is only supported for decoding by codec library
+[1784879574.614955] DEBUG: [core] Codec EVRC is only supported for decoding by codec library
+[1784879574.614988] DEBUG: [core] Codec EVRC0 is only supported for decoding by codec library
+[1784879574.615021] DEBUG: [core] Codec EVRC1 is only supported for decoding by codec library
+[1784879574.615105] DEBUG: [core] Codec AMR is only supported for decoding by codec library
+[1784879574.615298] DEBUG: [core] Codec AMR-WB is only supported for decoding by codec library
+[1784879574.615397] DEBUG: [core] log dtmf over ng 0
+[1784879574.615405] DEBUG: [core] no log injected dtmf 0
+[1784879574.626718] DEBUG: [http] Starting HTTP/WS 'localhost:2225'
+[1784879574.647520] DEBUG: [http] http-only callback 35 0x5582be98ccd0 (nil)
+[1784879574.647544] DEBUG: [http] Unhandled HTTP callback 35
+[1784879574.647549] DEBUG: [http] http-only callback 32 0x5582be98ccd0 (nil)
+[1784879574.647552] DEBUG: [http] Unhandled HTTP callback 32
+[1784879574.647555] DEBUG: [http] http-only callback 36 0x5582be98ccd0 (nil)
+[1784879574.647558] DEBUG: [http] Unhandled HTTP callback 36
+[1784879574.648417] DEBUG: [http] http-only callback 35 0x5582be98d9d0 (nil)
+[1784879574.648434] DEBUG: [http] Unhandled HTTP callback 35
+[1784879574.648438] DEBUG: [http] http-only callback 32 0x5582be98d9d0 (nil)
+[1784879574.648441] DEBUG: [http] Unhandled HTTP callback 32
+[1784879574.648443] DEBUG: [http] http-only callback 36 0x5582be98d9d0 (nil)
+[1784879574.648446] DEBUG: [http] Unhandled HTTP callback 36
+[1784879574.648667] DEBUG: [http] Websocket init complete with 4 threads
+[1784879574.648694] INFO: [core] Startup complete, version 12.5.1.31-1
+[1784879574.650135] INFO: [http] Websocket listener thread running
+[1784879574.650196] DEBUG: [http] http-only callback 31 0x5582be98c460 (nil)
+[1784879574.650248] DEBUG: [http] http-only callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650289] DEBUG: [http] Websocket protocol 'janus-protocol' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650309] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650315] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650322] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650329] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650336] DEBUG: [http] http-only callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650352] DEBUG: [http] Websocket protocol 'janus-protocol' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650362] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650374] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650381] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650392] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 27 0x7fb2857ce7c0 (nil)
+[1784879574.650434] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.650447] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.650453] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.650459] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.650465] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.650477] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879574.650487] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.650493] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.650498] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.650504] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.650510] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.650516] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879574.650942] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.651038] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.651046] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.651061] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.651073] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.651085] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879574.651116] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.651160] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.651173] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.651186] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.651192] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.651204] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879574.651378] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.651394] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.651408] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.651421] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.651433] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.651446] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879574.651457] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879574.651463] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879574.651599] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879574.651611] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879574.651623] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879574.651639] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879600.036309] DEBUG: [control] Adding a proxy for control ng stats:127.0.0.1
+[1784879600.037707] INFO: [control] Received command 'ping' from 127.0.0.1:60852
+[1784879600.037747] DEBUG: [control] Dump for 'ping' from 127.0.0.1:60852: { "command": "ping" }
+[1784879600.037762] INFO: [control] Replying to 'ping' from 127.0.0.1:60852 (elapsed time 0.000000 sec)
+[1784879600.037771] DEBUG: [control] Response dump for 'ping' to 127.0.0.1:60852: { "result": "pong" }
+[1784879660.039462] INFO: [control] Received command 'ping' from 127.0.0.1:38963
+[1784879660.039568] DEBUG: [control] Dump for 'ping' from 127.0.0.1:38963: { "command": "ping" }
+[1784879660.039638] INFO: [control] Replying to 'ping' from 127.0.0.1:38963 (elapsed time 0.000001 sec)
+[1784879660.039672] DEBUG: [control] Response dump for 'ping' to 127.0.0.1:38963: { "result": "pong" }
+[1784879696.142169] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879696.142199] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879696.142210] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879696.142216] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879696.142226] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879696.142231] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879696.142237] DEBUG: [http] http-only callback 71 0x5582be98c460 (nil)
+[1784879696.142242] DEBUG: [http] Websocket protocol 'janus-protocol' callback 71 0x5582be98c460 (nil)
+[1784879696.142247] DEBUG: [http] Websocket protocol 'echo.rtpengine.com' callback 71 0x5582be98c460 (nil)
+[1784879696.142253] DEBUG: [http] Websocket protocol 'rtpengine-cli' callback 71 0x5582be98c460 (nil)
+[1784879696.142258] DEBUG: [http] Websocket protocol 'rtpengine-ng' callback 71 0x5582be98c460 (nil)
+[1784879696.142263] DEBUG: [http] Websocket protocol 'rtpengine-ng-plain' callback 71 0x5582be98c460 (nil)
+[1784879704.226420] INFO: [a273ae9e8f7a8052]: [control] Received command 'offer' from 127.0.0.1:60397
+[1784879704.226479] DEBUG: [a273ae9e8f7a8052]: [control] Dump for 'offer' from 127.0.0.1:60397: { "supports": [ "load limit" ], "sdp": "v=0
+o=- 752357590 473497345 IN IP4 101.127.123.149
+s=-
+c=IN IP4 101.127.123.149
+t=0 0
+m=audio 2964 RTP/AVP 0 8 101
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+a=rtcp-rsize
+a=ssrc:1525497714 cname:sip:loghi@101.127.123.149
+a=mid:0
+a=minptime:20
+a=ptime:20
+", "call-id": "a273ae9e8f7a8052", "from-tag": "e36ddc54b98631a1", "command": "offer", "sip-message-type": "sip_request" }
+[1784879704.230841] NOTICE: [a273ae9e8f7a8052]: [core] Creating new call
+[1784879704.231201] DEBUG: [a273ae9e8f7a8052]: [core] Subscribing media with monologue tag '' (index: 1) to media with monologue tag 'e36ddc54b98631a1' (index: 1)
+[1784879704.231326] DEBUG: [a273ae9e8f7a8052]: [core] Subscribing media with monologue tag 'e36ddc54b98631a1' (index: 1) to media with monologue tag '' (index: 1)
+[1784879704.231618] DEBUG: [a273ae9e8f7a8052]: [codec] Updating codecs for offerer e36ddc54b98631a1 #1
+[1784879704.234070] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMU/8000/ (0)
+[1784879704.234114] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMA/8000/ (8)
+[1784879704.234124] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec telephone-event/8000/0-15 (101)
+[1784879704.234138] DEBUG: [a273ae9e8f7a8052]: [codec] Updating offer codecs for answerer  #1
+[1784879704.234143] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMU/8000/ (0)
+[1784879704.234151] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMA/8000/ (8)
+[1784879704.234157] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec telephone-event/8000/0-15 (101)
+[1784879704.234192] DEBUG: [a273ae9e8f7a8052]: [codec] Updating supplemental codecs for  #1
+[1784879704.234221] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for  #1 -> e36ddc54b98631a1 #1
+[1784879704.234236] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879704.234244] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879704.234251] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for PCMU/8000/ (0)
+[1784879704.234262] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879704.234269] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879704.234281] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879704.234290] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879704.234295] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for PCMA/8000/ (8)
+[1784879704.234309] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879704.234315] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879704.234320] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879704.234327] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879704.234332] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for telephone-event/8000/0-15 (101)
+[1784879704.234344] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879704.234355] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879704.234362] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879704.234380] DEBUG: [a273ae9e8f7a8052]: [codec] Updating supplemental codecs for  #1
+[1784879704.234390] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for  #1 -> e36ddc54b98631a1 #1
+[1784879704.234399] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879704.234404] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879704.234409] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879704.234414] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879704.234454] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879704.234483] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879704.234489] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879704.234495] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879704.234502] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879704.234508] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879704.234514] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879704.234522] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879704.234531] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879704.234579] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '1')
+[1784879704.234586] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for port = '30158'
+[1784879704.234647] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for port = '30159'
+[1784879704.234681] DEBUG: [a273ae9e8f7a8052]: [core] Opened a socket on port '30158' (on interface '10.10.0.1') for a media relay
+[1784879704.234772] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for RTP/RTCP ports (allocation attempt = '1')
+[1784879704.234780] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for port = '30518'
+[1784879704.234803] DEBUG: [a273ae9e8f7a8052]: [core] Trying to bind the socket for port = '30519'
+[1784879704.234824] DEBUG: [a273ae9e8f7a8052]: [core] Opened a socket on port '30518' (on interface '10.10.0.1') for a media relay
+[1784879704.234865] DEBUG: [a273ae9e8f7a8052]: [core] set FILLED flag for stream, local 10.10.0.1:30518 remote 101.127.123.149:2964
+[1784879704.234891] DEBUG: [a273ae9e8f7a8052]: [core] set FILLED flag for stream, local 10.10.0.1:30519 remote 101.127.123.149:2965
+[1784879704.235661] INFO: [a273ae9e8f7a8052]: [control] Replying to 'offer' from 127.0.0.1:60397 (elapsed time 0.009135 sec)
+[1784879704.235681] DEBUG: [a273ae9e8f7a8052]: [control] Response dump for 'offer' to 127.0.0.1:60397: { "sdp": "v=0
+o=- 752357590 473497345 IN IP4 101.127.123.149
+s=-
+c=IN IP4 10.10.0.1
+t=0 0
+m=audio 30158 RTP/AVP 0 8 101
+a=mid:0
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=rtcp-rsize
+a=ssrc:1525497714 cname:sip:loghi@101.127.123.149
+a=minptime:20
+a=sendrecv
+a=rtcp:30159
+a=ptime:20
+", "result": "ok" }
+[1784879708.564280] DEBUG: [a273ae9e8f7a8052//1 port 30159]: [core] New ingress SSRC for: :0 SSRC: 38b5eacc
+[1784879708.564515] DEBUG: [a273ae9e8f7a8052//1 port 30159]: [core] Handling packet: remote 10.10.0.22:34661 (expected: ) -> local 10.10.0.1:30159
+[1784879708.564592] DEBUG: [a273ae9e8f7a8052//1 port 30159]: [core] New egress (direct) SSRC for: 101.127.123.149:2965 SSRC: 38b5eacc
+[1784879708.564787] DEBUG: [a273ae9e8f7a8052//1 port 30159]: [rtcp] Calling handler for RTCP packet type 204
+[1784879708.564840] DEBUG: [a273ae9e8f7a8052/e36ddc54b98631a1/1 port 30519]: [core] Forward to sink endpoint: local 10.10.0.1:30519 -> remote 101.127.123.149:2965
+[1784879708.566593] INFO: [a273ae9e8f7a8052]: [control] Received command 'answer' from 127.0.0.1:49930
+[1784879708.566633] DEBUG: [a273ae9e8f7a8052]: [control] Dump for 'answer' from 127.0.0.1:49930: { "supports": [ "load limit" ], "sdp": "v=0
+o=- 3426694083 726073672 IN IP4 10.45.0.3
+s=-
+c=IN IP4 10.45.0.3
+t=0 0
+a=tool:baresip 1.0.0
+m=audio 34660 RTP/AVP 0 8 101
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=sendrecv
+a=label:1
+a=ssrc:951446220 cname:sip:bob@101.127.123.149
+a=minptime:20
+a=ptime:20
+", "call-id": "a273ae9e8f7a8052", "from-tag": "e36ddc54b98631a1", "to-tag": "1bf40c194ed03be1", "command": "answer", "sip-message-type": "sip_reply" }
+[1784879708.567014] DEBUG: [a273ae9e8f7a8052]: [core] Unconfirming peer address for local 10.10.0.1:30158 (dialogue signalling event)
+[1784879708.567034] DEBUG: [a273ae9e8f7a8052]: [core] Unconfirming peer address for local 10.10.0.1:30518 (dialogue signalling event)
+[1784879708.567054] DEBUG: [a273ae9e8f7a8052]: [core] Unconfirming peer address for local 10.10.0.1:30159 (dialogue signalling event)
+[1784879708.567068] DEBUG: [a273ae9e8f7a8052]: [core] Unconfirming peer address for local 10.10.0.1:30519 (dialogue signalling event)
+[1784879708.567201] DEBUG: [a273ae9e8f7a8052]: [codec] Updating codecs for answerer 1bf40c194ed03be1 #1
+[1784879708.567217] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMU/8000/ (0)
+[1784879708.567244] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec PCMA/8000/ (8)
+[1784879708.567259] DEBUG: [a273ae9e8f7a8052]: [codec] Adding codec telephone-event/8000/0-15 (101)
+[1784879708.567283] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for 1bf40c194ed03be1 #1 -> e36ddc54b98631a1 #1
+[1784879708.567297] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879708.567311] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879708.567324] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879708.567337] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879708.567349] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879708.567363] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879708.567370] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879708.567378] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879708.567385] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879708.567398] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879708.567411] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879708.567426] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879708.567718] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879708.567740] DEBUG: [a273ae9e8f7a8052]: [codec] Codec answer for 1bf40c194ed03be1 #1
+[1784879708.567765] DEBUG: [a273ae9e8f7a8052]: [codec] Reverse codec for PCMU/8000/ (0) is PCMU/8000/ (0)
+[1784879708.567784] DEBUG: [a273ae9e8f7a8052]: [codec] Reverse codec for PCMA/8000/ (8) is PCMA/8000/ (8)
+[1784879708.567816] DEBUG: [a273ae9e8f7a8052]: [codec] Reverse codec for telephone-event/8000/0-15 (101) is telephone-event/8000/0-15 (101)
+[1784879708.567838] DEBUG: [a273ae9e8f7a8052]: [codec] telephone-event/8000/1 payload type 101 already present, skip
+[1784879708.567848] DEBUG: [a273ae9e8f7a8052]: [codec] telephone-event/8000/1 payload type 101 already present, skip
+[1784879708.567853] DEBUG: [a273ae9e8f7a8052]: [codec] telephone-event/8000/1 payload type 101 already present, skip
+[1784879708.567865] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for e36ddc54b98631a1 #1 -> 1bf40c194ed03be1 #1
+[1784879708.567875] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879708.567888] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879708.567898] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for PCMU/8000/ (0)
+[1784879708.567908] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879708.567920] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879708.567931] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879708.567939] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879708.567946] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for PCMA/8000/ (8)
+[1784879708.567963] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879708.567979] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879708.567991] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879708.568004] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879708.568013] DEBUG: [a273ae9e8f7a8052]: [codec] Creating codec handler for telephone-event/8000/0-15 (101)
+[1784879708.568025] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879708.568034] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879708.568047] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879708.568072] DEBUG: [a273ae9e8f7a8052]: [codec] Updating supplemental codecs for e36ddc54b98631a1 #1
+[1784879708.568089] DEBUG: [a273ae9e8f7a8052]: [codec] Updating supplemental codecs for 1bf40c194ed03be1 #1
+[1784879708.568101] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for e36ddc54b98631a1 #1 -> 1bf40c194ed03be1 #1
+[1784879708.568116] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879708.568123] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879708.568133] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879708.568139] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879708.568153] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879708.568168] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879708.568181] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879708.568193] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879708.568211] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879708.568221] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879708.568232] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879708.568245] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879708.568259] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879708.568278] DEBUG: [a273ae9e8f7a8052]: [codec] Setting up codec handlers for 1bf40c194ed03be1 #1 -> e36ddc54b98631a1 #1
+[1784879708.568290] DEBUG: [a273ae9e8f7a8052]: [codec] Default sink codec is PCMU/8000/ (0)
+[1784879708.568298] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMU/8000/1/ (0)
+[1784879708.568309] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMU/8000/ is PCMU/8000/1/ (0)
+[1784879708.568317] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMU/8000/ (0) for passthrough (to 0)
+[1784879708.568324] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMU/8000/ (0) with DTMF 101, CN -1
+[1784879708.568338] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec PCMA/8000/1/ (8)
+[1784879708.568347] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for PCMA/8000/ is PCMA/8000/1/ (8)
+[1784879708.568353] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec PCMA/8000/ (8) for passthrough (to 8)
+[1784879708.568365] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for PCMA/8000/ (8) with DTMF 101, CN -1
+[1784879708.568378] DEBUG: [a273ae9e8f7a8052]: [codec] Checking receiver codec telephone-event/8000/1/0-15 (101)
+[1784879708.568385] DEBUG: [a273ae9e8f7a8052]: [codec] Sink codec for telephone-event/8000/0-15 is telephone-event/8000/1/0-15 (101)
+[1784879708.568395] DEBUG: [a273ae9e8f7a8052]: [codec] Sink supports codec telephone-event/8000/0-15 (101) for passthrough (to 101)
+[1784879708.568403] DEBUG: [a273ae9e8f7a8052]: [codec] Using passthrough handler for telephone-event/8000/0-15 (101) with DTMF 101, CN -1
+[1784879708.568432] DEBUG: [a273ae9e8f7a8052]: [core] set FILLED flag for stream, local 10.10.0.1:30158 remote 10.45.0.3:34660
+[1784879708.568446] DEBUG: [a273ae9e8f7a8052]: [core] set FILLED flag for stream, local 10.10.0.1:30159 remote 10.45.0.3:34661
+[1784879708.568513] INFO: [a273ae9e8f7a8052]: [control] Replying to 'answer' from 127.0.0.1:49930 (elapsed time 0.001622 sec)
+[1784879708.568529] DEBUG: [a273ae9e8f7a8052]: [control] Response dump for 'answer' to 127.0.0.1:49930: { "sdp": "v=0
+o=- 3426694083 726073672 IN IP4 10.45.0.3
+s=-
+c=IN IP4 10.10.0.1
+t=0 0
+a=tool:baresip 1.0.0
+m=audio 30518 RTP/AVP 0 8 101
+a=label:1
+a=mid:0
+a=rtpmap:0 PCMU/8000
+a=rtpmap:8 PCMA/8000
+a=rtpmap:101 telephone-event/8000
+a=fmtp:101 0-15
+a=ssrc:951446220 cname:sip:bob@101.127.123.149
+a=minptime:20
+a=sendrecv
+a=rtcp:30519
+a=ptime:20
+", "result": "ok" }
+[1784879713.563788] INFO: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Confirmed peer address as 10.10.0.22:34661
+[1784879713.563846] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Peer address changed from 10.45.0.3:34661 to 10.10.0.22:34661
+[1784879713.563871] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Handling packet: remote 10.10.0.22:34661 (expected: 10.10.0.22:34661) -> local 10.10.0.1:30159
+[1784879713.563888] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 200
+[1784879713.563909] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] SR from 38b5eacc: RTP TS 0 PC 0 OC 0 NTP TS 3993868513/2420330035=3993868513.563527
+[1784879713.563945] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 202
+[1784879713.563961] DEBUG: [a273ae9e8f7a8052/e36ddc54b98631a1/1 port 30519]: [core] Forward to sink endpoint: local 10.10.0.1:30519 -> remote 101.127.123.149:2965
+[1784879713.564010] WARNING: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] No support for kernel packet forwarding available (interface to kernel module not open)
+[1784879718.563683] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Handling packet: remote 10.10.0.22:34661 (expected: 10.10.0.22:34661) -> local 10.10.0.1:30159
+[1784879718.563720] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 200
+[1784879718.563733] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] SR from 38b5eacc: RTP TS 0 PC 0 OC 0 NTP TS 3993868518/2419964963=3993868518.563442
+[1784879718.563740] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 202
+[1784879718.563749] DEBUG: [a273ae9e8f7a8052/e36ddc54b98631a1/1 port 30519]: [core] Forward to sink endpoint: local 10.10.0.1:30519 -> remote 101.127.123.149:2965
+[1784879720.038581] INFO: [control] Received command 'ping' from 127.0.0.1:38963
+[1784879720.038611] DEBUG: [control] Dump for 'ping' from 127.0.0.1:38963: { "command": "ping" }
+[1784879720.038617] INFO: [control] Replying to 'ping' from 127.0.0.1:38963 (elapsed time 0.000000 sec)
+[1784879720.038622] DEBUG: [control] Response dump for 'ping' to 127.0.0.1:38963: { "result": "pong" }
+[1784879723.564379] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Handling packet: remote 10.10.0.22:34661 (expected: 10.10.0.22:34661) -> local 10.10.0.1:30159
+[1784879723.564429] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 200
+[1784879723.564450] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] SR from 38b5eacc: RTP TS 0 PC 0 OC 0 NTP TS 3993868523/2422881245=3993868523.564121
+[1784879723.564468] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 202
+[1784879723.564484] DEBUG: [a273ae9e8f7a8052/e36ddc54b98631a1/1 port 30519]: [core] Forward to sink endpoint: local 10.10.0.1:30519 -> remote 101.127.123.149:2965
+[1784879726.082068] INFO: [a273ae9e8f7a8052]: [control] Received command 'delete' from 127.0.0.1:60397
+[1784879726.082114] DEBUG: [a273ae9e8f7a8052]: [control] Dump for 'delete' from 127.0.0.1:60397: { "supports": [ "load limit" ], "call-id": "a273ae9e8f7a8052", "from-tag": "e36ddc54b98631a1", "command": "delete", "sip-message-type": "sip_request" }
+[1784879726.082244] INFO: [a273ae9e8f7a8052]: [core] Scheduling deletion of call branch 'e36ddc54b98631a1' (via-branch '') in 30 seconds
+[1784879726.082267] INFO: [a273ae9e8f7a8052]: [core] Scheduling deletion of call branch '1bf40c194ed03be1' (via-branch '') in 30 seconds
+[1784879726.082646] INFO: [a273ae9e8f7a8052]: [core] Scheduling deletion of entire call in 30 seconds
+[1784879726.083191] INFO: [a273ae9e8f7a8052]: [control] Replying to 'delete' from 127.0.0.1:60397 (elapsed time 0.000948 sec)
+[1784879726.083518] DEBUG: [a273ae9e8f7a8052]: [control] Response dump for 'delete' to 127.0.0.1:60397: { "created": 1784879704, "created_us": 226260, "last signal": 1784879708, "last redis update": 0, "SSRC": {  }, "tags": { "e36ddc54b98631a1": { "tag": "e36ddc54b98631a1", "created": 1784879704, "subscriptions": [ { "tag": "1bf40c194ed03be1", "type": "offer/answer" } ], "subscribers": [ { "tag": "1bf40c194ed03be1", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "RTP/AVP", "streams": [ { "local port": 30518, "local address": "10.10.0.1", "family": "IPv4", "endpoint": { "family": "IPv4", "address": "101.127.123.149", "port": 2964 }, "advertised endpoint": { "family": "IPv4", "address": "101.127.123.149", "port": 2964 }, "last packet": 1784879704, "last kernel packet": 0, "last user packet": 1784879704, "flags": [ "RTP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "local port": 30519, "local address": "10.10.0.1", "family": "IPv4", "endpoint": { "family": "IPv4", "address": "101.127.123.149", "port": 2965 }, "advertised endpoint": { "family": "IPv4", "address": "101.127.123.149", "port": 2965 }, "last packet": 1784879704, "last kernel packet": 0, "last user packet": 1784879704, "flags": [ "RTCP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [ { "SSRC": 951446220, "bytes": 0, "packets": 0, "last RTP timestamp": 0, "last RTP seq": 0 } ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 4, "bytes": 208, "errors": 0 } } ], "flags": [ "initialized", "send", "recv" ] } ], "VSC": [  ] }, "1bf40c194ed03be1": { "tag": "1bf40c194ed03be1", "created": 1784879704, "subscriptions": [ { "tag": "e36ddc54b98631a1", "type": "offer/answer" } ], "subscribers": [ { "tag": "e36ddc54b98631a1", "type": "offer/answer" } ], "medias": [ { "index": 1, "type": "audio", "protocol": "RTP/AVP", "streams": [ { "local port": 30158, "local address": "10.10.0.1", "family": "IPv4", "endpoint": { "family": "IPv4", "address": "10.45.0.3", "port": 34660 }, "advertised endpoint": { "family": "IPv4", "address": "10.45.0.3", "port": 34660 }, "last packet": 1784879708, "last kernel packet": 0, "last user packet": 1784879708, "flags": [ "RTP", "filled" ], "ingress SSRCs": [  ], "egress SSRCs": [  ], "stats": { "packets": 0, "bytes": 0, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } }, { "local port": 30159, "local address": "10.10.0.1", "family": "IPv4", "endpoint": { "family": "IPv4", "address": "10.10.0.22", "port": 34661 }, "advertised endpoint": { "family": "IPv4", "address": "10.45.0.3", "port": 34661 }, "last packet": 1784879723, "last kernel packet": 0, "last user packet": 1784879723, "flags": [ "RTCP", "filled", "confirmed", "kernelized", "no kernel support" ], "ingress SSRCs": [ { "SSRC": 951446220, "bytes": 0, "packets": 0, "last RTP timestamp": 0, "last RTP seq": 0 } ], "egress SSRCs": [  ], "stats": { "packets": 4, "bytes": 208, "errors": 0 }, "stats_out": { "packets": 0, "bytes": 0, "errors": 0 } } ], "flags": [ "initialized", "send", "recv", "ICE controlling" ] } ], "VSC": [  ] } }, "totals": { "RTP": { "packets": 0, "bytes": 0, "errors": 0 }, "RTCP": { "packets": 4, "bytes": 208, "errors": 0 } }, "result": "ok" }
+[1784879726.087618] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [core] Handling packet: remote 10.10.0.22:34661 (expected: 10.10.0.22:34661) -> local 10.10.0.1:30159
+[1784879726.087668] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 203
+[1784879726.087705] DEBUG: [a273ae9e8f7a8052/1bf40c194ed03be1/1 port 30159]: [rtcp] Calling handler for RTCP packet type 202
+[1784879726.087720] DEBUG: [a273ae9e8f7a8052/e36ddc54b98631a1/1 port 30519]: [core] Forward to sink endpoint: local 10.10.0.1:30519 -> remote 101.127.123.149:2965

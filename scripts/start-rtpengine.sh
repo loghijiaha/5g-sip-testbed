@@ -28,5 +28,3 @@ sudo rtpengine --foreground \
     --port-max=$PORT_MAX \
     --log-level=$LOG_LEVEL \
     --log-stderr \
-    --no-cli \
-    --table=-1

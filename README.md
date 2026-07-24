@@ -24,7 +24,7 @@ Alice (VM native) ──SIP──> Kamailio (VM native) ──SIP──> Bob (UE
 
 ## Quick Start
 
-### 1. Start 5G Core + RTPengine (Docker)
+### 1. Start 5G Core
 
 ```bash
 docker compose -f docker-compose.vm.yml up

@@ -8,7 +8,7 @@
 ```
 Alice (VM native) ──SIP──> Kamailio (VM native) ──SIP──> Bob (UE2, Docker)
        │                         │                          │
-       │                    RTPengine (Docker)          uesimtun0
+       │                    RTPengine                   uesimtun0
        │                         │                          │
        └────── RTP ──────────────┘──── RTP ─────── 5G tunnel (gNB → UPF)
                                                           │
@@ -39,13 +39,18 @@ Wait ~30 seconds for all NFs to register and UEs to connect.
 docker exec ueransim-ue2 ping -I uesimtun0 -c 3 8.8.8.8
 ```
 
-### 3. Start Kamailio (VM native)
+### 3. Start RTPengine (VM native)
+```bash
+./scripts/start-rtpengine.sh
+```
+
+### 4. Start Kamailio (VM native)
 
 ```bash
 ./scripts/kamailio.sh
 ```
 
-### 4. Start Bob in UE2 (through 5G tunnel)
+### 5. Start Bob in UE2 (through 5G tunnel)
 
 Open a new terminal:
 
@@ -55,7 +60,7 @@ Open a new terminal:
 
 Bob will register with Kamailio through the 5G data plane.
 
-### 5. Start Alice (VM native)
+### 6. Start Alice (VM native)
 
 On your Mac:
 
@@ -69,7 +74,7 @@ Or manually:
 baresip -f configs/baresip/alice
 ```
 
-### 6. Make a call
+### 7. Make a call
 
 From Alice's baresip console:
 
@@ -151,7 +156,6 @@ docker system prune -a --volumes -f
 | gNB | 10.10.0.20 |
 | UE1 | 10.10.0.21 |
 | UE2 | 10.10.0.22 |
-| RTPengine | 10.10.0.30 |
 | Kamailio | VM native (0.0.0.0:5060) |
 | UE2 tunnel | 10.45.0.x (uesimtun0) |
 

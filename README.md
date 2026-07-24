@@ -19,7 +19,7 @@ Alice (VM native) ──SIP──> Kamailio (VM native) ──SIP──> Bob (UE
 
 - GCP VM (Debian/Ubuntu) with Docker & Docker Compose
 - Kamailio installed natively on VM (`sudo apt install kamailio kamailio-mysql-modules`)
-- RTPengine installed natively on VM (`sudo apt-get install rtpengine`)
+- RTPengine installed natively on VM (`sudo apt install rtpengine`)
 - baresip v4.9.0 on your Linux/Mac (`sudo apt install baresip / brew install baresip`)
 - GCP firewall rules: allow UDP 5060, 30000-31000
 

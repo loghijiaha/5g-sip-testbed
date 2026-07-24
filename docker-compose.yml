@@ -194,17 +194,6 @@ services:
       core:
         ipv4_address: 10.10.0.22
 
-  rtpengine:
-    build: { context: ., dockerfile: Dockerfile.rtpengine }
-    container_name: rtpengine
-    privileged: true
-    ports:
-      - "30000-30100:30000-30100/udp"
-    command: bash -c "EXTERNAL_IP=$$(curl -s ifconfig.me) && rtpengine --foreground --interface=10.10.0.30!$$EXTERNAL_IP --listen-ng=10.10.0.30:22222 --port-min=30000 --port-max=30100 --log-level=6 --table=-1"
-    networks:
-      core:
-        ipv4_address: 10.10.0.30
-
 networks:
   core:
     driver: bridge
